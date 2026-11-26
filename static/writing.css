@@ -34,6 +34,7 @@ body:has(> .empty-writing) { min-height: 100svh; display: grid; grid-template-ro
 .empty-writing { display: grid; place-content: center; justify-items: center; gap: .5rem; }
 .empty-writing img { display: block; object-fit: contain; }
 .empty-writing p { margin: 0; }
+.not-found { grid-row: 1 / -1; }
 .writing-year {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);

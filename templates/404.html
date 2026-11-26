@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 Not Found</title>
+  {% include "favicon.html" %}
+  <link rel="stylesheet" href="{{ get_url(path='writing.css') }}">
+</head>
+<body>
+  <main class="empty-writing not-found" aria-label="Page not found">
+    <img src="{{ get_url(path='images/empty.png') }}" width="160" height="160" alt="">
+    <p>Ooops</p>
+  </main>
+</body>
+</html>
