@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ config.title }}</title>
+  <link rel="stylesheet" href="{{ get_url(path='writing.css') }}">
+</head>
+<body class="home">
+  {% set translations = section.translations %}
+  {% include "language-switcher.html" %}
+  <main class="home-profile">
+    <div class="home-portrait">
+      <img src="{{ get_url(path='images/me.png') }}" width="1312" height="1199" alt="">
+      <img class="smile" src="{{ get_url(path='images/me-smilling.png') }}" width="1312" height="1199" alt="">
+    </div>
+    <div class="home-copy">
+      <h1>{{ config.title }}</h1>
+      <p class="home-intro">{{ trans(key='home_intro', lang=lang) }}</p>
+      <p>{{ trans(key='home_work', lang=lang) | markdown(inline=true) | safe }}</p>
+      <a class="home-writing" href="{{ get_url(path='blog/', lang=lang) }}">{{ trans(key='writing', lang=lang) }} <span aria-hidden="true">→</span></a>
+    </div>
+  </main>
+</body>
+</html>

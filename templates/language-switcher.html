@@ -1,0 +1,12 @@
+{% if translations | length > 1 %}
+<nav class="languages" aria-label="{{ trans(key='language', lang=lang) }}">
+  {% for variant in translations | sort(attribute='lang') %}
+    {% if variant.lang == 'en' %}{% set label = "English" %}{% else %}{% set label = "Русский" %}{% endif %}
+    {% if variant.lang == lang %}
+      <span lang="{{ lang }}" aria-current="page">{{ label }}</span>
+    {% else %}
+      <a href="{{ variant.permalink }}" lang="{{ variant.lang }}" hreflang="{{ variant.lang }}">{{ label }}</a>
+    {% endif %}
+  {% endfor %}
+</nav>
+{% endif %}

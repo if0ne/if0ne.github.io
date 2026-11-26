@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% import "toc.html" as toc %}
+{% block title %}{{ page.title }}{% endblock title %}
+{% block body %}
+<main class="shell post">
+  <header class="post-heading">
+    {% if page.extra.cover %}
+    <img class="cover" src="{{ get_url(path=page.extra.cover) }}" alt="{{ page.extra.cover_alt | default(value='') }}">
+    {% endif %}
+    <h1>{{ page.title }}</h1>
+    <div class="metadata">
+      {% if page.date %}<time datetime="{{ page.date }}">{{ page.date | date(format=trans(key='date_format', lang=lang)) }}</time>{% endif %}
+      {% if page.extra.show_reading_time | default(value=true) %}<span>{{ page.reading_time }} {{ trans(key='reading_time', lang=lang) }}</span>{% endif %}
+      {% for link in page.extra.links | default(value=[]) %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
+    </div>
+  </header>
+  <div class="layout">
+    {% if page.toc %}
+    <nav class="contents" aria-label="{{ trans(key='contents', lang=lang) }}">
+      <h2>{{ trans(key='contents', lang=lang) }}</h2>
+      {{ toc::list(headings=page.toc) }}
+    </nav>
+    {% endif %}
+    <article>{{ page.content | safe }}</article>
+  </div>
+</main>
+<script defer src="{{ get_url(path='reading.js') }}"></script>
+{% endblock body %}

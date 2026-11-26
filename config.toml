@@ -1,0 +1,37 @@
+base_url = "https://if0ne.github.io"
+title = "Pavel Agafonov"
+
+[markdown]
+highlight_code = true
+highlight_theme = "inspired-github"
+
+[translations]
+initials = "P. A."
+writing = "Writing"
+contents = "Contents"
+reading_time = "min read"
+progress = "Reading progress"
+breadcrumb = "Breadcrumb"
+language = "Language"
+empty = "No posts yet."
+empty_caption = "Oops..."
+home_intro = "Software engineer and indie game developer."
+home_work = "Building the RecSys Platform [@T-BANK](https://tbank.ru). Previously built ETL and BI systems [@YASP](https://yasp.ru)."
+date_format = "%m.%d.%y"
+
+[languages.ru]
+title = "Агафонов Павел"
+
+[languages.ru.translations]
+initials = "А. П."
+writing = "Статьи"
+contents = "Содержание"
+reading_time = "мин на чтение"
+progress = "Ход чтения"
+breadcrumb = "Путь к статье"
+language = "Язык"
+empty = "Пока нет статей."
+empty_caption = "Упс..."
+home_intro = "Инженер-программист и инди-разработчик игр."
+home_work = "Разрабатываю RecSys Platform [@T-BANK](https://tbank.ru). Раньше создавал системы ETL и BI [@YASP](https://yasp.ru)."
+date_format = "%d.%m.%Y"

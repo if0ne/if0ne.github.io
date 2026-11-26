@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{{ section.title }}{% endblock title %}
+{% block body %}
+<main class="{% if section.pages %}shell{% else %}empty-writing{% endif %}" aria-label="{{ section.title }}">
+  {% if section.pages %}
+    <h1>{{ section.title }}</h1>
+    {% for year in section.pages | map(attribute="year") | unique %}
+    {% set posts = section.pages | filter(attribute="year", value=year) %}
+    <section class="writing-year" aria-labelledby="year-{{ year }}">
+      <h2 id="year-{{ year }}">{{ year }}</h2>
+      <ul class="post-list">
+        {% for post in posts %}
+        <li>
+          <a href="{{ post.permalink }}">{{ post.title }}</a>
+          {% if post.extra.cover or post.description %}
+          <div class="post-preview">
+            {% if post.extra.cover %}<img src="{{ get_url(path=post.extra.cover) }}" alt="{{ post.extra.cover_alt | default(value='') }}" width="96" height="96">{% endif %}
+            {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+          </div>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endfor %}
+  {% else %}
+    <img src="{{ get_url(path='images/empty.png') }}" width="160" height="160" alt="{{ trans(key='empty', lang=lang) }}">
+    <p>{{ trans(key='empty_caption', lang=lang) }}</p>
+  {% endif %}
+</main>
+{% endblock body %}
