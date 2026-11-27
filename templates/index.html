@@ -12,8 +12,10 @@
   {% include "language-switcher.html" %}
   <main class="home-profile">
     <div class="home-portrait">
-      <img src="{{ get_url(path='images/me.png') }}" width="1312" height="1199" alt="">
-      <img class="smile" src="{{ get_url(path='images/me-smilling.png') }}" width="1312" height="1199" alt="">
+      {% set portrait = resize_image(path="static/images/me.png", width=552, op="fit_width", format="webp", quality=82) %}
+      <img src="{{ portrait.url }}" width="{{ portrait.width }}" height="{{ portrait.height }}" alt="">
+      {% set smile = resize_image(path="static/images/me-smilling.png", width=552, op="fit_width", format="webp", quality=82) %}
+      <img class="smile" src="{{ smile.url }}" width="{{ smile.width }}" height="{{ smile.height }}" alt="">
     </div>
     <div class="home-copy">
       <h1>{{ config.title }}</h1>

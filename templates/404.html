@@ -9,7 +9,8 @@
 </head>
 <body>
   <main class="empty-writing not-found" aria-label="Page not found">
-    <img src="{{ get_url(path='images/empty.png') }}" width="160" height="160" alt="">
+    {% set empty_image = resize_image(path="static/images/empty.png", width=320, op="fit_width", format="webp", quality=82) %}
+    <img src="{{ empty_image.url }}" width="160" height="160" alt="">
     <p>Ooops</p>
   </main>
 </body>

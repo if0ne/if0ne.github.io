@@ -24,7 +24,8 @@
     </section>
     {% endfor %}
   {% else %}
-    <img src="{{ get_url(path='images/empty.png') }}" width="160" height="160" alt="{{ trans(key='empty', lang=lang) }}">
+    {% set empty_image = resize_image(path="static/images/empty.png", width=320, op="fit_width", format="webp", quality=82) %}
+    <img src="{{ empty_image.url }}" width="160" height="160" alt="{{ trans(key='empty', lang=lang) }}">
     <p>{{ trans(key='empty_caption', lang=lang) }}</p>
   {% endif %}
 </main>
