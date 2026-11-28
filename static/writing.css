@@ -70,7 +70,7 @@ body:has(> .empty-writing) { min-height: 100svh; display: grid; grid-template-ro
     transition: opacity 180ms ease-out, transform 180ms ease-out, visibility 180ms linear;
   }
 }
-.post { --measure: 40rem; max-width: 90rem; }
+.post, .about { --measure: 40rem; max-width: 90rem; }
 .post-heading { max-width: var(--measure); margin: 0 auto 3rem; text-align: center; }
 .cover { display: block; width: 160px; height: 160px; object-fit: contain; margin: 0 auto 1.5rem; }
 .post-heading h1 { max-width: none; margin: 0; font-weight: 600; line-height: 1.18; letter-spacing: -.025em; }
@@ -161,7 +161,9 @@ progress::-moz-progress-bar { background: var(--accent); }
   font: clamp(.875rem, 1vw, 1.25rem)/1.45 var(--writing-font);
 }
 .home-intro { color: var(--muted-text); }
-.about { max-width: 43rem; }
+.about > h1 { max-width: var(--measure); margin-inline: auto; }
+.about-bio { grid-area: 1 / 2; min-width: 0; }
+.contacts { overflow-wrap: anywhere; }
 .about-guinea-pig { display: block; margin: 2rem auto 0; object-fit: contain; }
 .home-links {
   display: flex;
