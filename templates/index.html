@@ -21,7 +21,11 @@
       <h1>{{ config.title }}</h1>
       <p class="home-intro">{{ trans(key='home_intro', lang=lang) }}</p>
       <p>{{ trans(key='home_work', lang=lang) | markdown(inline=true) | safe }}</p>
-      <a class="home-writing" href="{{ get_url(path='blog/', lang=lang) }}">{{ trans(key='writing', lang=lang) }} <span aria-hidden="true">→</span></a>
+      {% set about = get_section(path="about/_index.md", lang=lang) %}
+      <nav class="home-links">
+        <a href="{{ about.permalink }}">{{ about.title }} <span aria-hidden="true">→</span></a>
+        <a href="{{ get_url(path='blog/', lang=lang) }}">{{ trans(key='writing', lang=lang) }} <span aria-hidden="true">→</span></a>
+      </nav>
     </div>
   </main>
 </body>

@@ -161,14 +161,18 @@ progress::-moz-progress-bar { background: var(--accent); }
   font: clamp(.875rem, 1vw, 1.25rem)/1.45 var(--writing-font);
 }
 .home-intro { color: var(--muted-text); }
-.home-writing {
-  display: inline-block;
+.about { max-width: 43rem; }
+.about-guinea-pig { display: block; margin: 2rem auto 0; object-fit: contain; }
+.home-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
   margin-top: clamp(1rem, 1.8vw, 2.25rem);
   font: 400 clamp(1rem, 1.2vw, 1.5rem)/1.3 var(--writing-font);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .home-writing > span { display: inline-block; transition: transform 180ms ease-out; }
-  .home-writing:is(:hover, :focus-visible) > span { transform: translateX(.3em); }
+  .home-links a > span { display: inline-block; transition: transform 180ms ease-out; }
+  .home-links a:is(:hover, :focus-visible) > span { transform: translateX(.3em); }
 }
 @media (max-width: 36rem) {
   .home-profile { grid-template-columns: 1fr; gap: 1rem; width: min(calc(100% - 2.5rem), 24rem); }

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}{{ section.title }}{% endblock title %}
+{% block body %}
+<main class="shell about">
+  <h1>{{ section.title }}</h1>
+  {{ section.content | safe }}
+  {% set guinea_pig = resize_image(path="static/images/guinea-pig.png", width=320, op="fit_width", format="webp", quality=82) %}
+  <img class="about-guinea-pig" src="{{ guinea_pig.url }}" width="160" height="160" loading="lazy" alt="{{ trans(key='guinea_pig', lang=lang) }}">
+</main>
+{% endblock body %}
